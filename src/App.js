@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Login from "./login";
+import Dashboard from "./pages/Dashboard";
 
 
 class App extends React.Component{
@@ -9,7 +9,7 @@ class App extends React.Component{
       return (
           <BrowserRouter>
               <Routes>
-                  <Route path="/" element={<Login></Login>} />
+                  <Route path="/" element={<Dashboard></Dashboard>} />
               </Routes>
           </BrowserRouter>
       )
