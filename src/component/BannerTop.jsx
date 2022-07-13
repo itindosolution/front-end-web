@@ -2,8 +2,8 @@ import bannerTop from "../assets/image/bannerTop.png"
 import "../assets/css/BannerTop.css";
 
 function BannerTop(){
-    return(<div id="home" class="flex-container-home">
-        <div class="flex-container-home-column">
+    return(<div id="home" className="flex-container-home">
+        <div className="flex-container-home-column">
             <h1 id="home">IT INDO <br/>Solution</h1>
             <div>
             <p>IT Indo Solution merupakan penyedia layanan jasa yang bergerak dibidang Teknologi Informasi,

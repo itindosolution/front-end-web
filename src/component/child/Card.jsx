@@ -2,13 +2,13 @@ function Card(props){
     return (
         <section>
             <img src="./assets/gambar/cctv.jpg" alt="cctv"/>
-            <h3>{props.title}</h3>
-            <p class="grid-para">{props.description?props.description:'description kosong'}</p>
+            <h3>{props.list.name}</h3>
+            <p className="grid-para">{props.list.description?props.list.description:'description kosong'}</p>
             {
-                props.list?props.list.map((e)=><strong>{e}</strong>):'list kosong'
+                props.list.products?props.list.products.map((e)=><strong key={e}>{e}<br/></strong>):'list kosong'
             }
-            <strong class="net">{props.price}</strong>
-            <button class="order">Order Now</button>
+            <strong className="net">{props.list.price}</strong>
+            <button className="order">Order Now</button>
         </section>
     )
 }
