@@ -9,12 +9,14 @@ function ServiceCard(){
 
     useEffect(() => {
         async function ListPackage(){
-            const ListPackage = (await Api.getAll({route:'package/service'})).data.packageService;
+            const ListPackage = (await Api.getAll({route:'package/service'})).data.packageServices;
             setListPackage(ListPackage);
         }
 
         ListPackage();
     }, []);
+
+    // console.log(listPackage);
     return (<article id="service" className="product-body">
                     <h2 className="product">Paket Layanan</h2>
                     <div className="grid">
