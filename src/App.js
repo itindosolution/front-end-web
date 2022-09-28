@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import About from './components/About';
+import Banner from './components/Banner';
+import Estimate from './components/Estimate';
+import Feature from './components/Features';
+import Footer from './components/Footer';
+import Navigate from './components/Navigate';
+import Package from './components/Package';
 
 function App() {
+  const [lang, setLang] = useState("idn");
+  const changeLang = (lang)=>{
+    setLang(lang)
+  };
+
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='main text-slate-500'>
+      <Navigate lang={lang} changeLang={changeLang} ></Navigate>
+      <Banner lang={lang}></Banner>
+      <Feature lang={lang}></Feature>
+      <Package lang={lang}></Package>
+      <Estimate lang={lang}></Estimate>
+      <About lang={lang}></About>
+      <Footer lang={lang}></Footer>
     </div>
   );
 }
