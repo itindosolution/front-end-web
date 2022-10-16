@@ -202,8 +202,8 @@ function Package({lang}){
     const nonaktif = "w-72 text-center block border rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-2";
 
     const [search,setSearch] = useState("software");
-    const idn = ["Paket","Pengembangan Perangkat Lunak","Perbaikan Hardware dan Software","Infrastruktur Jaringan dan Server","Internet Of Things dan Robotika"];
-    const uk = ["Package","Software Development", "Hardware and Software Repair", "Network And Server Infrastructure", "Internet Of Things and Robotic" ];
+    const idn = ["PAKET","Pengembangan Perangkat Lunak","Perbaikan Hardware dan Software","Infrastruktur Jaringan dan Server","Internet Of Things dan Robotika"];
+    const uk = ["PACKAGES","Software Development", "Hardware and Software Repair", "Network And Server Infrastructure", "Internet Of Things and Robotic" ];
 
     const chLang = lang ==="idn"?idn:uk;
     const processSearch = (type)=>{

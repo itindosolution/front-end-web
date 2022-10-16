@@ -17,14 +17,14 @@ function App() {
   
   
   return (
-    <div className='main text-slate-500'>
-      <Navigate lang={lang} changeLang={changeLang} ></Navigate>
+    <div className='main max-h-screen overflow-y-scroll snap snap-y snap-mandatory text-slate-500'>
+      <section class="snap-start w-full h-screen"><Navigate lang={lang} changeLang={changeLang} ></Navigate></section>
       <Banner lang={lang}></Banner>
-      <Feature lang={lang}></Feature>
-      <Package lang={lang}></Package>
-      <Estimate lang={lang}></Estimate>
-      <About lang={lang}></About>
-      <Footer lang={lang}></Footer>
+      <section class="snap-start w-full h-screen"><Feature lang={lang}></Feature></section>
+      <section class="snap-start w-full h-screen"><Package lang={lang}></Package></section>
+      <section class="snap-start w-full h-screen"><Estimate lang={lang}></Estimate></section>
+      <section class="snap-start w-full h-screen"><About lang={lang}></About></section>
+      <section class="snap-start w-full h-screen"><Footer lang={lang}></Footer></section>
     </div>
   );
 }
