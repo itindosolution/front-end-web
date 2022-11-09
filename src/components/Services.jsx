@@ -46,7 +46,7 @@ function Serivces({lang}){
         if(chModal){
             modal.classList.remove("hidden");
             modal.classList.remove("-z-10");
-            modal.classList.add("z-10");
+            modal.classList.add("z-30");
             setModal(false);
         }else{
             modal.classList.add("hidden");
@@ -57,10 +57,11 @@ function Serivces({lang}){
     
     
     return(
-        <div className="">
-            <hr className="md:invisible"/>
-            <p className="text-center text-xl font-bold pt-5 pb-5 " id="layanan">{chLang[0]}</p>
-                <div id="modalFeature" aria-hidden="true" className="hidden -z-10 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 w-full md:inset-0 h-modal md:h-full">
+        <section className="snap-start w-full pt-10" id="layanan">
+            <div className="m-auto p-5">
+                <hr className="md:invisible"/>
+                <p className="text-center text-xl font-bold pt-5 pb-5 " >{chLang[0]}</p>
+                <div id="modalFeature" aria-hidden="true" className="hidden -z-10 overflow-y-auto overflow-x-hidden fixed top-10 right-0 left-0 w-full md:inset-0 h-modal md:h-full mt-10">
                     <div className="m-auto relative p-4 w-full max-w-2xl h-full md:h-auto">
                         <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                             <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
@@ -87,40 +88,41 @@ function Serivces({lang}){
                         </div>
                     </div>
                 </div>
-            
-            <div className="flex flex-wrap justify-center sm:ml-0 md:ml-5 lg:ml-20 overflow-x-auto h-80 scrollbar-hide">
-                {
-                    features.map((feature,index)=>{
-                        let deskripsi = feature.deskripsi[chLangNo];
-                        if (deskripsi.length > 100){
-                            deskripsi = deskripsi.substring(0, 100) + " ...";
-                        }
-                        
-                        
-                        return(
-                            <div className="max-w-sm m-3 bg-white rounded-lg border border-gray-200 shadow-xl md:m-3 lg:max-w-xs " key={index}>
-                                <a href="ss">
-                                    <video className="md:h-80" id={feature.id} autoPlay muted>
-                                        <source src={feature.src} type="video/mp4" />
-                                    </video>
-                                </a>
-                                <div className="p-5">
-                                    <a href="s">
-                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">{feature.judul[chLangNo]}</h5>
-                                    </a>
-                                    <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">{deskripsi}</p>
-                                    <button onClick={()=>openModal(index)} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                        {chLang[1]}
-                                        <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" ></path></svg>
-                                    </button>
-                                </div>
-                            </div>
+                <div id="package" className="flex flex-wrap justify-center sm:ml-0 md:ml-5 lg:ml-20 overflow-x-auto scrollbar-hide">
+                    {
+                        features.map((feature,index)=>{
+                            let deskripsi = feature.deskripsi[chLangNo];
+                            if (deskripsi.length > 100){
+                                deskripsi = deskripsi.substring(0, 100) + " ...";
+                            }
                             
-                        );
-                    })
-                }
+                            
+                            return(
+                                <div className="max-w-sm m-3 bg-white rounded-lg border border-gray-200 shadow-xl md:m-3 lg:max-w-xs " key={index}>
+                                    <a href="s">
+                                        <video className="md:h-80" id={feature.id} autoPlay muted>
+                                            <source src={feature.src} type="video/mp4" />
+                                        </video>
+                                    </a>
+                                    <div className="p-5">
+                                        <a href="s">
+                                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">{feature.judul[chLangNo]}</h5>
+                                        </a>
+                                        {/* <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">{deskripsi}</p> */}
+                                        <button onClick={()=>openModal(index)} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            {chLang[1]}
+                                            <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" ></path></svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                            );
+                        })
+                    }
+                <br></br>
+                </div>
             </div>
-        </div>
+        </section>
 
     )
 }

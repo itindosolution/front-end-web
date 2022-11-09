@@ -6,9 +6,8 @@ function Banner({lang}){
     
     const changeLang = lang === "idn"? idn : uk;
 
-
     return (
-        <div className="flex flex-wrap-reverse justify-center">
+        <div className="flex flex-wrap-reverse justify-center mt-20">
             <div className="w-full m-auto md:basis-1/2 text-center justify-center">
                 <p className="text-center pt-3 text-2xl font-bold ">{changeLang[0]}</p>
                 <p className="font-bold">ITINDO SOLUTIONS</p>

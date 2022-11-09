@@ -1,4 +1,11 @@
 import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Mousewheel, Keyboard } from "swiper";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "../assets/css/Swiper.css";
 
 function Package({lang}){
     const paket = [
@@ -198,11 +205,11 @@ function Package({lang}){
             list:["website menggunakan wordpres", "domain gratis terbatas", "hosting gratis selama 1 tahun"]
         },
     ]
-    const aktif ="w-72 text-center block border rounded bg-blue-300 hover:bg-blue-300 text-white py-2 px-2";
-    const nonaktif = "w-72 text-center block border rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-2";
+    const aktif ="w-82 text-center border rounded bg-blue-300 hover:bg-blue-300 text-white py-2 px-2";
+    const nonaktif = "w-82 text-center border rounded hover:border-gray-200 text-gray-500 hover:bg-gray-200 py-2 px-2";
 
     const [search,setSearch] = useState("software");
-    const idn = ["PAKET","Pengembangan Perangkat Lunak","Perbaikan Hardware dan Software","Infrastruktur Jaringan dan Server","Internet Of Things dan Robotika"];
+    const idn = ["PAKET","Pengembangan Perangkat Lunak","Perbaikan Perangakat Keras dan Lunak","Infrastruktur Jaringan dan Server","Internet Of Things dan Robotika"];
     const uk = ["PACKAGES","Software Development", "Hardware and Software Repair", "Network And Server Infrastructure", "Internet Of Things and Robotic" ];
 
     const chLang = lang ==="idn"?idn:uk;
@@ -211,58 +218,67 @@ function Package({lang}){
     }
 
     return(
-        <div className="m-auto p-5 md:w-10/12">
-            <h2 className="text-center pt-3 text-xl font-bold" id="paket">{chLang[0]}</h2>
-            <ul className="flex overflow-x-auto p-3 scrollbar-hide snap-mandatory snap-x ">
-                <li className="flex-1 mr-2 snap-center ">
-                    <p id="software" className={search==="software"?aktif:nonaktif} onClick={()=>processSearch("software")}>{chLang[1]}</p>
-                </li>
-                <li className="flex-1 mr-2 snap-center">
-                    <p id="hardware" className={search==="hardware"?aktif:nonaktif} onClick={()=>processSearch("hardware")}>{chLang[2]}</p>
-                </li>
-                <li className="flex-1 mr-2 snap-center">
-                    <p id="infra" className={search==="infra"?aktif:nonaktif} onClick={()=>processSearch("infra")}>{chLang[3]}</p>
-                </li>
-                <li className="flex-1 mr-2 snap-center">
-                    <p id="iot" className={search==="iot"?aktif:nonaktif} onClick={()=>processSearch("iot")}>{chLang[4]}</p>
-                </li>
-            </ul>
-            <div id="package" className="overflow-x-auto h-128 scrollbar-hide ">
-                <div className="flex flex-wrap md:ml-20 ">
-                    {
-                        paket.filter((x)=>{
-                            return x.type === search
-                         }).map((paket)=>{
-                            return(
-                                <div className="max-w-sm m-3 bg-white rounded-lg border border-gray-200 shadow-md md:m-3 md:max-w-xs" key={paket.id}>
-                                    <a href="ss">
-                                        <img src={paket.src} alt=""/>
-                                    </a>
-                                    <div className="p-5">
-                                        <a href="s">
-                                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">{paket.judul}</h5>
+        <section className="snap-start w-full pt-10" id="paket">
+            <div className="m-auto p-5 md:w-10/12">
+                <h2 className="text-center pt-3 pb-1 text-xl font-bold">{chLang[0]}</h2>
+                <Swiper
+                    cssMode={true}
+                    pagination={true}
+                    mousewheel={true}
+                    keyboard={true}
+                    modules={[Pagination, Mousewheel, Keyboard]}
+                    className="mySwiper"
+                >
+                    <SwiperSlide className="mr-2 snap-center">
+                        <p id="software" className={search==="software"?aktif:nonaktif} onClick={()=>processSearch("software")}>{chLang[1]}</p>
+                    </SwiperSlide>
+                    <SwiperSlide className="mr-2 snap-center">
+                        <p id="hardware" className={search==="hardware"?aktif:nonaktif} onClick={()=>processSearch("hardware")}>{chLang[2]}</p>
+                    </SwiperSlide>
+                    <SwiperSlide className="mr-2 snap-center">
+                        <p id="infra" className={search==="infra"?aktif:nonaktif} onClick={()=>processSearch("infra")}>{chLang[3]}</p>
+                    </SwiperSlide>
+                    <SwiperSlide className="mr-2 snap-center">
+                        <p id="iot" className={search==="iot"?aktif:nonaktif} onClick={()=>processSearch("iot")}>{chLang[4]}</p>
+                    </SwiperSlide>
+                </Swiper>
+                <div id="package" className="overflow-x-auto h-128 scrollbar-hide ">
+                    <div className="flex flex-wrap md:ml-20 ">
+                        {
+                            paket.filter((x)=>{
+                                return x.type === search
+                            }).map((paket)=>{
+                                return(
+                                    <div className="max-w-sm m-3 bg-white rounded-lg border border-gray-200 shadow-md md:m-3 md:max-w-xs" key={paket.id}>
+                                        <a href="ss">
+                                            <img src={paket.src} alt=""/>
                                         </a>
-                                        <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">{paket.deskripsi}</p>
-                                       { 
-                                        paket.list.map((list,index)=>{
-                                                return(
-                                                    <p className="font-normal text-gray-500 dark:text-gray-400" key={index}>- {list}</p>
-                                                )
-                                            })
-                                        }
-                                        <a href="s" className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                            Pesan
-                                            <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"></path></svg>
-                                        </a>
+                                        <div className="p-5">
+                                            <a href="s">
+                                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-500 dark:text-white">{paket.judul}</h5>
+                                            </a>
+                                            <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">{paket.deskripsi}</p>
+                                        { 
+                                            paket.list.map((list,index)=>{
+                                                    return(
+                                                        <p className="font-normal text-gray-500 dark:text-gray-400" key={index}>- {list}</p>
+                                                    )
+                                                })
+                                            }
+                                            <a href="s" className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                Pesan
+                                                <svg aria-hidden="true" className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"></path></svg>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                                
-                            );
-                        })
-                    }
+                                    
+                                );
+                            })
+                        }
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

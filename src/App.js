@@ -12,19 +12,17 @@ function App() {
   const [lang, setLang] = useState("idn");
   const changeLang = (lang)=>{
     setLang(lang)
-  };
-
-  
+  }; 
   
   return (
     <div className='main max-h-screen overflow-y-scroll snap snap-y snap-mandatory text-slate-500'>
-      <section class="snap-start w-full h-screen"><Navigate lang={lang} changeLang={changeLang} ></Navigate></section>
+      <Navigate lang={lang} changeLang={changeLang} ></Navigate>
       <Banner lang={lang}></Banner>
-      <section class="snap-start w-full h-screen"><Serivces lang={lang}></Serivces></section>
-      <section class="snap-start w-full h-screen"><Package lang={lang}></Package></section>
-      <section class="snap-start w-full h-screen"><Estimate lang={lang}></Estimate></section>
-      <section class="snap-start w-full h-screen"><About lang={lang}></About></section>
-      <section class="snap-start w-full h-screen"><Footer lang={lang}></Footer></section>
+      <Serivces lang={lang}></Serivces>
+      <Package lang={lang}></Package>
+      <Estimate lang={lang}></Estimate>
+      <About lang={lang}></About>
+      <Footer lang={lang}></Footer>
     </div>
   );
 }
