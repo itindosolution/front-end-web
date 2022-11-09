@@ -198,7 +198,7 @@ function Package({lang}){
             list:["website menggunakan wordpres", "domain gratis terbatas", "hosting gratis selama 1 tahun"]
         },
     ]
-    const aktif ="w-72 text-center block border rounded bg-blue-400 hover:bg-blue-700 text-white py-2 px-2";
+    const aktif ="w-72 text-center block border rounded bg-blue-300 hover:bg-blue-300 text-white py-2 px-2";
     const nonaktif = "w-72 text-center block border rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-2 px-2";
 
     const [search,setSearch] = useState("software");
@@ -213,21 +213,21 @@ function Package({lang}){
     return(
         <div className="m-auto p-5 md:w-10/12">
             <h2 className="text-center pt-3 text-xl font-bold" id="paket">{chLang[0]}</h2>
-            <ul className="flex overflow-x-auto p-3 scrollbar-hide">
-                <li className="flex-1 mr-2 ">
+            <ul className="flex overflow-x-auto p-3 scrollbar-hide snap-mandatory snap-x ">
+                <li className="flex-1 mr-2 snap-center ">
                     <p id="software" className={search==="software"?aktif:nonaktif} onClick={()=>processSearch("software")}>{chLang[1]}</p>
                 </li>
-                <li className="flex-1 mr-2 ">
+                <li className="flex-1 mr-2 snap-center">
                     <p id="hardware" className={search==="hardware"?aktif:nonaktif} onClick={()=>processSearch("hardware")}>{chLang[2]}</p>
                 </li>
-                <li className="flex-1 mr-2 ">
+                <li className="flex-1 mr-2 snap-center">
                     <p id="infra" className={search==="infra"?aktif:nonaktif} onClick={()=>processSearch("infra")}>{chLang[3]}</p>
                 </li>
-                <li className="flex-1 mr-2 ">
+                <li className="flex-1 mr-2 snap-center">
                     <p id="iot" className={search==="iot"?aktif:nonaktif} onClick={()=>processSearch("iot")}>{chLang[4]}</p>
                 </li>
             </ul>
-            <div id="package" className="overflow-x-auto h-128 scrollbar-hide">
+            <div id="package" className="overflow-x-auto h-128 scrollbar-hide ">
                 <div className="flex flex-wrap md:ml-20 ">
                     {
                         paket.filter((x)=>{

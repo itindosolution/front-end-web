@@ -4,7 +4,7 @@ import infra from "../assets/video/infrastructure.mp4";
 import iot from "../assets/video/iot.mp4";
 import { useState } from "react";
 
-function Features({lang}){
+function Serivces({lang}){
     const features = [
         {
             id:"videoSoftware",
@@ -88,7 +88,7 @@ function Features({lang}){
                     </div>
                 </div>
             
-            <div className="flex flex-wrap md:ml-20 overflow-x-auto h-128 scrollbar-hide">
+            <div className="flex flex-wrap justify-center sm:ml-0 md:ml-5 lg:ml-20 overflow-x-auto h-80 scrollbar-hide">
                 {
                     features.map((feature,index)=>{
                         let deskripsi = feature.deskripsi[chLangNo];
@@ -98,7 +98,7 @@ function Features({lang}){
                         
                         
                         return(
-                            <div className="max-w-sm m-3 bg-white rounded-lg border border-gray-200 shadow-xl md:m-3 md:max-w-xs" key={index}>
+                            <div className="max-w-sm m-3 bg-white rounded-lg border border-gray-200 shadow-xl md:m-3 lg:max-w-xs " key={index}>
                                 <a href="ss">
                                     <video className="md:h-80" id={feature.id} autoPlay muted>
                                         <source src={feature.src} type="video/mp4" />
@@ -125,4 +125,4 @@ function Features({lang}){
     )
 }
 
-export default Features
+export default Serivces;
